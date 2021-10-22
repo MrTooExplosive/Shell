@@ -69,7 +69,7 @@ int lsh_help(char **args)
 
 	// Print each built in argument
 	for (int index = 0; index < lshNumBuiltins(); index++)
-		printf("   %s\n", builtinStr[i]);
+		printf("   %s\n", builtinStr[index]);
 
 	printf("Use the man command for information on other programs.\n");
 	return 1;
