@@ -15,7 +15,9 @@ int lsh_help(char ** args);
 int lsh_exit(char **args);
 int lshNumBuiltins();
 
+// Variables for built-in commands
 char *builtinStr[] = {"cd", "help", "exit"};
+int (*builtinFunc[]) (char **) = { &lsh_cd, &lsh_help, &lsh_exit };
 
 int main(int argc, char **argv)
 {
