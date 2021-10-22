@@ -12,6 +12,7 @@ void lsh_loop();
 char *lshReadLine();
 int lshLaunc(char **args);
 int lsh_help(char ** args);
+int lsh_exit(char **args);
 
 char *builtinStr[] = {"cd", "help", "exit"};
 
@@ -23,6 +24,12 @@ int main(int argc, char **argv)
 
 	// Perform shutdown
 	return EXIT_SUCCESS;
+}
+
+// Built-in exit command
+int lsh_exit(char **args)
+{
+	return 0;
 }
 
 // Built-in help command
