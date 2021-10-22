@@ -1,3 +1,4 @@
+#include <sys/wait.h>
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
@@ -10,10 +11,11 @@ int lsh_cd(char **args);
 char **lshSplitLine(char *line);
 void lsh_loop();
 char *lshReadLine();
-int lshLaunc(char **args);
+int lshLaunch(char **args);
 int lsh_help(char ** args);
 int lsh_exit(char **args);
 int lshNumBuiltins();
+int lshExecute(char **args);
 
 // Variables for built-in commands
 char *builtinStr[] = {"cd", "help", "exit"};
@@ -27,6 +29,23 @@ int main(int argc, char **argv)
 
 	// Perform shutdown
 	return EXIT_SUCCESS;
+}
+
+// Executes a command
+int lshExecute(char **args)
+{
+	// Check if user entered a blank line
+	if (args[0] == NULL)
+		return 1;
+
+	// Check if user used a built in command
+	for (int index = 0; index < lshNumBuiltins(); index++)
+	{
+		if (strcmp(args[0], builtinStr[index]) == 0)
+			return (*builtinFunc[index]) (args);
+	}
+
+	return lshLaunch(args);
 }
 
 // Gets the number of built-in commands
