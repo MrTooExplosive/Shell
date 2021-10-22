@@ -13,6 +13,7 @@ char *lshReadLine();
 int lshLaunc(char **args);
 int lsh_help(char ** args);
 int lsh_exit(char **args);
+int lshNumBuiltins();
 
 char *builtinStr[] = {"cd", "help", "exit"};
 
@@ -24,6 +25,12 @@ int main(int argc, char **argv)
 
 	// Perform shutdown
 	return EXIT_SUCCESS;
+}
+
+// Gets the number of built-in commands
+int lshNumBuiltins()
+{
+	return sizeof(builtin_str) / sizeof(char *);
 }
 
 // Built-in exit command
