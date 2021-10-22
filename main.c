@@ -6,6 +6,7 @@
 #define LSH_TOK_BUFSIZE 64
 #define LSH_TOK_DELM " \t\r\n\a"
 
+int lsh_cd(char **args);
 char **lshSplitLine(char *line);
 void lsh_loop();
 char *lshReadLine();
@@ -19,6 +20,19 @@ int main(int argc, char **argv)
 
 	// Perform shutdown
 	return EXIT_SUCCESS;
+}
+
+// Builting change directory command
+int lsh_cd(char **args)
+{
+	if (args[1] == NULL)  // Check for an argument to cd
+		fprintf(stderr, "lsh: expected argument to \"cd\"\n");
+	else
+	{
+		if (chdir(args[1]) != 0)
+			perror("lsh");
+	}
+	return 1;
 }
 
 void lsh_loop()
