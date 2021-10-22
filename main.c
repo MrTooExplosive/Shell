@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #define LSH_RL_BUFSIZE 1024
 #define LSH_TOK_BUFSIZE 64
-#define LSH_TOK_DELM " \t\r\n\a"
+#define LSH_TOK_DELIM " \t\r\n\a"
 
 int lsh_cd(char **args);
 char **lshSplitLine(char *line);
