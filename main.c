@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 {
 	// Load config files
 
-	lsh_loop(); // To be defined
+	lsh_loop();
 
 	// Perform shutdown
 	return EXIT_SUCCESS;
