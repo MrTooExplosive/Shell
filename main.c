@@ -51,7 +51,7 @@ int lshExecute(char **args)
 // Gets the number of built-in commands
 int lshNumBuiltins()
 {
-	return sizeof(builtin_str) / sizeof(char *);
+	return sizeof(builtinStr) / sizeof(char *);
 }
 
 // Built-in exit command
