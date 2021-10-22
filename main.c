@@ -63,13 +63,12 @@ int lsh_exit(char **args)
 // Built-in help command
 int lsh_help(char **args)
 {
-	int i;
 	printf("Makarius Salib's LSH\n");
 	printf("Type program arguments, and hit enter.\n");
 	printf("The following are built in:\n");
 
 	// Print each built in argument
-	for (index = 0; index < lshNumBuiltins(); index++)
+	for (int index = 0; index < lshNumBuiltins(); index++)
 		printf("   %s\n", builtinStr[i]);
 
 	printf("Use the man command for information on other programs.\n");
